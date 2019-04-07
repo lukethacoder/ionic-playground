@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Instagram
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="dark">
+  <ion-row lines="none" class="dark">
+    <ion-col size-lg="4" button *ngFor="let item of (results | async)">
+      <div [style.background-image]="'url(' + item.node.display_url + ')'"></div>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<!-- <ion-content class="dark">
+    <ion-list lines="none" class="dark">
+      <ion-item button *ngFor="let item of (results | async)">
+        <div [style.background-image]="'url(' + item.node.display_url + ')'"></div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+   -->

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Domain Seach
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="dark">
+  <!-- <button ion-button (click)="getListOfUrls()">Get Data</button> -->
+
+  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)"></ion-searchbar>
+
+  <ion-list lines="none" class="dark">
+    <ion-item button *ngFor="let item of (results | async)">
+      <!-- <ion-img [src]="`https://www.countryflags.io/${ item.domain }/flat/64.png`"></ion-img> -->
+      <p>{{ item.domain }}</p>
+      <ion-img
+        *ngIf="item.country != null"
+        [src]="'https://www.countryflags.io/' + item.country + '/flat/64.png'"
+      ></ion-img>
+    </ion-item>
+  </ion-list>
+</ion-content>
